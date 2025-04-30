@@ -11,8 +11,8 @@ class DirectorsController < ApplicationController
     render({ :template => "directors_templates/est"})
   end
 
-  def oldest
-    @stat = "Oldest"
+  def eldest
+    @stat = "Eldest"
     @d = Director.where.not(:dob => nil).order(:dob => :asc).at(0)
 
     render({ :template => "directors_templates/est"})
@@ -21,7 +21,6 @@ class DirectorsController < ApplicationController
   def bio
     @id_num = params[:id].to_i
     @d = Director.where({:id => @id_num}).at(0)
-
 
     render({ :template => "directors_templates/bios"})
   end

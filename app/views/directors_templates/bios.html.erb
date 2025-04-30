@@ -2,4 +2,55 @@
 
 <div> <a href="/directors/">Go back</a> </div>
 
-<%= @d.bio %>
+<hr>
+
+<div>
+<dt> Name </dt>
+<dd> <%= @d.name %> </dd>
+
+<dt> Dob </dt>
+<dd> <%= @d.dob %> </dd>
+
+<dt> Bio </dt>
+<dd> <%= @d.bio %> </dd>
+
+<dt> Image </dt>
+<dd> <img src="<%=@d.image%>" width=300> </dd>
+
+<dt> Created at: </dt>
+<dd> <%= @d.created_at %>
+
+<dt> Updated at: </dt>
+<dd> <%= @d.updated_at %>
+
+</div>
+
+<hr>
+
+<h1>Filmography</h1>
+
+<div>
+
+<table border=1>
+  <tr>
+    <th>ID</th>
+    <th>Image</th>
+    <th>Title</th>
+    <th>Year</th>
+    <th>Director</th>
+    <th></th>
+  </tr>
+
+<% Movie.where(:director_id => @id_num).order(:year => :asc).each do |m| %>
+  <tr>
+    <td> <%= m.id %> </td>
+    <td> <img src=<%=m.image %> width=200> </td>
+    <td> <%= m.title %> </td>
+    <td> <%= m.year %> </td>
+    <td> <%= @d.name %> </td>
+    <td> <a href="/movies/<%= m.id %>">Show details</a> </td>
+  </tr>
+<% end %>
+</table>
+
+</div>
