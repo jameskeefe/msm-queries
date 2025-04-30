@@ -1,0 +1,5 @@
+<h1> <%= @stat %> director </h1>
+
+<p>
+The <%= @stat.downcase() %> director in our dataset right now is <a href="/directors/<%=@d.id%>"><%=@d.name%></a>, born on <%= @d.dob.strftime('%B %d, %Y') %>.
+</p>
