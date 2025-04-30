@@ -1,0 +1,22 @@
+<h1>List of all directors</h1>
+
+<table border=1>
+  <tr>
+    <th>ID</th>
+    <th>Image</th>
+    <th>Name</th>
+    <th>Dob</th>
+    <th></th>
+  </tr>
+
+<!-- Potentially need to sort by all Directors on DOB descending first -->
+<% Director.all.each do |d| %>
+  <tr>
+    <th> <%= d.id %> </th>
+    <th> <img src=<%=d.image %> width=200> </th>
+    <th> <%= d.name %> </th>
+    <th> <%= d.dob %> </th>
+    <th> <a href="/directors/<%= d.id %>">Show details</a> </th>
+  </tr>
+<% end %>
+</table>
