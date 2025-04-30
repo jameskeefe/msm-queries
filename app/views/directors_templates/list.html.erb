@@ -9,14 +9,14 @@
     <th></th>
   </tr>
 
-<!-- Potentially need to sort by all Directors on DOB descending first -->
-<% Director.all.each do |d| %>
+<!-- Potentially need to sort by all Directors on DOB descending first DONE --> 
+<% Director.all.order({ :dob => :desc, :name => :asc}).each do |d| %>
   <tr>
-    <th> <%= d.id %> </th>
-    <th> <img src=<%=d.image %> width=200> </th>
-    <th> <%= d.name %> </th>
-    <th> <%= d.dob %> </th>
-    <th> <a href="/directors/<%= d.id %>">Show details</a> </th>
+    <td> <%= d.id %> </td>
+    <td> <img src=<%=d.image %> width=200> </td>
+    <td> <%= d.name %> </td>
+    <td> <%= d.dob %> </td>
+    <td> <a href="/directors/<%= d.id %>">Show details</a> </td>
   </tr>
 <% end %>
 </table>
